@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商品列表</title>
+	<link rel="stylesheet" type="text/css" href="/css/productList.css">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<h1>
+		<span><a target="mainRight" href="/productList">商品列表</a></span>
+		<span><a href="">ECSHOP 管理中心</a></span>
+		<span><a href=""> - 添加新商品 </a></span>
+		<span><a href=""><img src="/images/jnsy.png"></a></span>
+	</h1>
+	<!-- form-div -->
+	<div id="form-div">
+		<form >
+			<img src="/images/icon_search.gif">
+			<select style="width: 150px">
+				<option>所有分类</option>
+			</select>
+			<select style="width: 130px">
+				<option>所有品牌</option>
+			</select>
+			<select style="width: 100px">
+				<option>全部</option>
+			</select>
+			<select>
+				<option>全部</option>
+			</select>
+			关键字 <input class="keyword" name="" type="text" size="15" style="outline: none">
+			<input class="button" type="button" style="width:60px;height: 30px;background:#ff3f3f;padding:5px 15px 5px;color:#fff;border-radius: 5px;margin:5px;outline: none;border:0;" value="搜索" onclick="goods_list()">
+		</form>
+	</div>
+	<form>
+		<div class="listDiv">
+			<table cellpadding="3" cellspacing="1">
+				<tr cellpadding="1" cellspacing="1">
+					<th>
+						<input type="checkbox">
+						<a href="javascript:;">编号</a>
+					</th>
+					<th>
+						<a href="javascript:;">商品名称</a>
+						<img src="/images/sort_desc.gif">
+					</th>
+					<th>
+						<a href="javascript:;">货号</a>
+					</th>
+					<th>
+						<a href="javascript:;">价格</a>
+					</th>
+					<th>
+						<a href="javascript:;">上架</a>
+					</th>
+					<th>
+						<a href="javascript:;">精品</a>
+					</th>
+					<th>
+						<a href="javascript:;">新品</a>
+					</th>
+					<th>
+						<a href="javascript:;">热销</a>
+					</th>
+					<th>
+						<a href="javascript:;">推荐排序</a>
+					</th>
+					<th>
+						<a href="javascript:;">库存</a>
+					</th>
+					<th>
+						<a href="javascript:;">虚拟销量</a>
+					</th>
+					<th>
+						<a href="javascript:;">操作</a>
+					</th>
+				</tr>
+			<!-- goods_list -->
+
+				<% for(var i=0;i<list.length;i++) { %>
+					<tr cellpadding="1" cellspacing="1">
+						<td>
+							<input type="checkbox">
+							<span>编号</span>
+						</td>
+						<td>
+							<span><%= list[i].goods_name %></span>
+							
+						</td>
+						<td>
+							<span>货号</span>
+						</td>
+						<td>
+							<span><%= list[i].price %></span>
+						</td>
+						<td>
+							
+							<img src="/images/yes.gif">
+						</td>
+						<td>
+							<img src="/images/no.gif">
+						</td>
+						<td>
+							<img src="/images/no.gif">
+						</td>
+						<td>
+							<img src="/images/no.gif">
+						</td>
+						<td>
+							<span>推荐排序</span>
+						</td>
+						<td>
+							<span>库存</span>
+						</td>
+						<td>
+							<span>虚拟销量</span>
+						</td>
+						<td>
+							<span >
+								<a href=""><img style="padding-top: 12px" src="/images/icon_view.gif"></a>
+								<a href=""><img src="/images/icon_edit.gif"></a>
+								<a href=""><img src="/images/icon_copy.gif"></a>
+								<a class="listRemove" onclick="listRemove('<%= list[i]._id %>')" href=""><img src="/images/icon_trash.gif"></a>
+							</span>
+						</td> 
+					</tr>
+					<!-- <div>
+						<span><%= list[i].goods_name %></span>
+						<span><%= list[i].price %></span>
+						<span><%= list[i].detail %></span>
+						<img src="/imgs/<%= list[i].img %>" />
+					</div> -->
+				<% } %>    
+
+
+
+				
+			</table>
+			<table id="page_table" style="width:100%">
+				<tr>
+					<td align="right" style="background:rgb(255,255,255);" nowrap="true">
+						<div id="turn_page" style="width:100%">
+							总计<span id="totalNum">16</span>
+							个记录分为<span id="totalPages"></span>
+							页当前第<span id="pageCurrent"><%= pageNo%></span>
+							页，每页<input id="pageSize" size="3" value="5" type="text">
+							<span id="page_link">
+								<a href="/productList?pageNo=1&count=<%= count%>">第一页</a>
+								<% if(pageNo > 1){%>
+								<a class="previousPage" href="/productList?pageNo=<%= pageNo-1%>&count=<%= count%>">上一页</a>
+								<% } %>
+								<a class="nextPage " href="/productList?pageNo=<%= pageNo+1%>&count=<%= count%>">下一页</a>
+								<a href="">最末页</a>
+								<select>
+									<option>1</option>
+									<option>2</option>
+								</select>
+							</span>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<select style="width:90px;">
+				<option>请选择...</option>
+			</select>
+			<input id="btnSubmit" class="button" disabled="true" type="submit" style="width:60px;height: 30px;background:#ff3f3f;padding:5px 15px 5px;color:#fff;border-radius: 5px;margin:5px;outline: none;border:0;" value="确定">
+		</div>
+	</form>
+	
+
+	<div id="footer">共执行 12 个查询，用时 0.047650 秒，Gzip 已禁用，内存占用 3.194 MB<br>
+版权所有 &copy 2005-2018 上海商派软件有限公司，并保留所有权利。
+	</div>
+</body>
+<script type="text/javascript">
+// 数据总计
+	$.ajax({
+		url: '/api/totality',
+		type: 'get',
+		data: {number: '1'},
+		success:function(res){
+			// console.log(res.length);
+			$("#totalNum").html(res.length);
+
+		}
+	})
+ // fen();
+// 分页
+// $(".previousPage").click(function() {
+	
+// 	fen(parseInt($("#pageCurrent").html())-1);
+// });
+// $(".nextPage").click(function() {
+// 	console.log(parseInt($("#pageCurrent").html())+1);
+// 	fen(parseInt($("#pageCurrent").html())+1);
+// });
+
+function fen(pageNo){
+			console.log(pageNo);
+	$(".listDiv tr").eq(0).siblings().remove(); 
+			$.ajax({
+			url: '/api/productList',
+			type: 'get',
+			
+			data: {	number:"1",
+					count:$("#pageSize").val(),
+					pageNo:pageNo||$("#pageCurrent").html(),
+
+				},
+			success:function(msg){
+			
+				// $("#pageCurrent").html(msg.pageNo);
+				// $("#pageSize").val(msg.count);
+				$("#totalPages").html(msg.totalPage)
+				
+			}	
+		})
+}
+
+
+
+
+
+
+// 删除
+	// $(".listRemove").click(function() {
+	// 	if(confirm("你确定要删除吗？")){
+	// 		$(this).parent().parent().parent().remove();
+	// 		console.log($(this).parent().parent().parent().children().eq(1).children("span").html())
+	// 		$.ajax({
+	// 			url: '/api/remove',
+	// 			type: 'post',
+			
+	// 			data: {"goods_name":$(this).parent().parent().parent().children().eq(1).children("span").html(),"price":$(this).parent().parent().parent().children().eq(3).children("span").html()},
+				
+	// 			success:function(msg){
+					
+	// 			}
+	// 		})		
+
+	// 	}
+		
+	// });
+
+
+
+//删除
+	function listRemove(id){
+		if(confirm("你确定要删除吗？")){
+			$.ajax({
+				url: '/api/remove',
+				type: 'get',
+				
+				data: {_id:id},
+				success:function(msg){
+					if(msg.status==1){
+						location.reload(true);
+					}else{
+						alert(msg.massage);
+					}
+				}
+			})
+		}
+		
+		
+	}
+
+
+
+	// 列表
+	function goods_list(){
+		
+		// var ajax = new XMLHttpRequest();
+		// ajax.open("post", "/api/goods_list");
+		// ajax.onreadystatechange = function(res) {
+
+		// }
+		// ajax.send({"username":$(".keyword").val()});
+		$(".listDiv tr").eq(0).siblings().remove(); 
+		$.ajax({
+			url: '/api/goods_list',
+			type: 'post',
+		
+			data: {"number":"1","username":$(".keyword").val()},
+			success:function(msg){
+				var html="";
+				for(var i=0;i<msg.length;i++){
+
+					 // str +='<tr><td><input type="checkbox" value="">' + res[i].goods_id +'</td><td><span class="good_name">' + res[i].goods_name + '</span></td><td><span>200</span></td><td><span>' + res[i].goods_price + '</span></td><td><img src="../images/no.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><span>100</span></td><td><span>1</span></td><td><span>10</span></td><td><a href="#"><img src="../images/icon_view.gif"></a><a href="#"><img src="../images/icon_edit.gif"></a><a href="#"><img src="../images/icon_copy.gif"></a><a href="javascript:;" class="delete"><img src="../images/icon_trash.gif"  ></a></td></tr>'
+					html+=`<tr cellpadding="1" cellspacing="1">
+						<td>
+							<input type="checkbox">
+							<span>编号</span>
+						</td>
+						<td>
+							<span>${msg[i].goods_name}</span>
+							
+						</td>
+						<td>
+							<span>货号</span>
+						</td>
+						<td>
+							<span>${msg[i].price}</span>
+						</td>
+						<td>
+							
+							<img src="/images/yes.gif">
+						</td>
+						<td>
+							<img src="/images/no.gif">
+						</td>
+						<td>
+							<img src="/images/no.gif">
+						</td>
+						<td>
+							<img src="/images/no.gif">
+						</td>
+						<td>
+							<span>推荐排序</span>
+						</td>
+						<td>
+							<span>库存</span>
+						</td>
+						<td>
+							<span>虚拟销量</span>
+						</td>
+						<td>
+							<span >
+								<a href=""><img style="padding-top: 12px" src="/images/icon_view.gif"></a>
+								<a href=""><img src="/images/icon_edit.gif"></a>
+								<a href=""><img src="/images/icon_copy.gif"></a>
+								<a class="listRemove" href=""><img src="/images/icon_trash.gif"></a>
+							</span>
+						</td>
+					</tr>`
+				}
+				$(".listDiv table").eq(0).append(html);
+
+
+			}
+		})
+		
+		
+	}
+</script>
+</html>

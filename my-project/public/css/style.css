@@ -1,0 +1,179 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+ ul,ol,li,a{list-style:none;}
+ a,u{text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-size:16px;font-weight:100;}
+b,strong{font-weight:100;}
+i,em{font-style:normal;}
+.clearfix::after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+body{
+	width:100%;
+	min-height:600px;
+	background:url(../images/ecshop-bg.png) center no-repeat;
+	background-size: 100%;
+}
+#logo{
+	width:100%;
+	height:124px;
+}
+#logo>img{
+	width:155px;
+	height:38px;
+	margin:43px;
+}
+#centerWrap{
+	width:475px;
+	height:570px;
+	// background:pink;
+	position:fixed;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+}
+#centerWrap>img{
+	display: block;
+	width:248px;
+	height:65px;
+	margin:0 auto;
+}
+#centerWrap .loginPanel{
+	width:372px;
+	height:312px;
+	background:url(/images/body_bj.jpg);
+	margin:0 auto;
+	margin-top:70px;
+	position:relative;
+	padding:40px 0 0 70px; 
+}
+#centerWrap .loginPanel img{
+	width:475px;
+	height:50px;
+	position:absolute;
+	left:-16.5px;
+	bottom:-42px;
+}
+.loginPanel .first{
+	width:300px;
+	height:50px;
+	background:#fff;
+
+	border-bottom: 1px solid #ccc;
+}
+.loginPanel .first i{
+	width:40px;
+	height:50px;
+	font-size:30px;
+	text-align: center;
+	line-height: 50px;
+	float: left;
+
+}
+.loginPanel .first #username{
+	width:260px;
+	height:50px;
+	border:none;
+	outline:none;
+
+	float:left;
+}
+
+.loginPanel .second{
+	width:300px;
+	height:50px;
+	background:#fff;
+	border-bottom: 1px solid #ccc;
+}
+.loginPanel .second i{
+	width:40px;
+	height:50px;
+	font-size:30px;
+	text-align: center;
+	line-height: 50px;
+	float: left;
+
+}
+.loginPanel .second #pwd{
+	width:260px;
+	height:50px;
+	border:none;
+	outline: none;
+	float:left;
+}
+.loginPanel .three input{
+	width:260px;
+	height:50px;
+	border:none;
+	outline: none;
+	padding-left: 40px;
+}
+.loginPanel .three i{
+	width:40px;
+	height:50px;
+	font-size: 30px!important;
+	line-height: 50px;
+	position:absolute;
+	left:74px;
+	top:142px;
+}
+.loginPanel .three .authCode{
+	width:104px;
+	height:36px;
+	background:blue;
+	position:absolute;
+	color:#fff;
+	font-size:20px;
+	line-height: 36px;
+	text-align: center; 
+	left:255px;
+	top:150px;
+}
+.loginPanel .four {
+	width:300px;
+	height:50px;
+	color：#fff;
+	border:0;
+	bac kground:#fc7878;
+	margin-top: 30px;
+}
+.loginPanel .four input{
+	width:300px;
+	height:50px;
+	color：#fff;
+	border:0;
+	background:#fc7878;
+}
+.loginPanel .five{
+	width:302px;
+	height:18px;
+	
+	margin-top:20px;
+}
+.loginPanel .five input{
+	float: left;
+	width:18px;
+	height:18px;
+
+}
+.loginPanel .five a:nth-of-type(1){
+	float: left;
+	color:#000;
+	font-size: 12px;
+	line-height: 18px;
+	padding-left: 5px;
+}
+.loginPanel .five a:nth-of-type(2){
+	float: left;
+	color:#41A5E1;
+	font-size: 12px;
+	line-height: 18px;
+	padding-left: 24px;
+}
+.loginPanel .five a:nth-of-type(3){
+	float: left;
+	color:#41A5E1;
+	font-size: 12px;
+	line-height: 18px;
+	padding-left: 45px;
+}

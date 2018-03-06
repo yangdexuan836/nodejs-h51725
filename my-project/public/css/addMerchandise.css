@@ -1,0 +1,152 @@
+@charset "utf-8";
+*{margin:0;padding:0;}
+ ul,ol,li,a{list-style:none;}
+ a,u{text-decoration:none}
+h1,h2,h3,h4,h5,h6{font-size:16px;font-weight:100;}
+b,strong{font-weight:100;}
+i,em{font-style:normal;}
+.clearfix::after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+
+body{
+
+	height:100%;
+	padding:10px;
+	background:url(/images/body_bj.jpg);
+	
+}
+
+/*top*/
+
+h1{
+	width:100%;
+	height:25px;
+	border-bottom: 1px solid #ccc;
+	padding:7px 10px;
+	margin-bottom: 10px;
+	
+
+}
+h1 span{
+	float: left;
+}
+h1 span:nth-of-type(1){
+	float: right;
+
+}
+h1 span:nth-of-type(1) a{
+	width:115px;
+	height:26px;
+	display: block;
+	background:url(/images/icon_add02.gif) no-repeat 6px center #c43926 ;
+	color:#fff;
+	border-radius: 5px;
+	line-height: 26px;
+	text-align: center;
+}
+h1 span:nth-of-type(2) a{
+	height:26px;
+	display: block;
+	color:#335B64;
+	line-height: 26px;
+	text-align: center;
+	font-weight: 900;
+}
+h1 span:nth-of-type(2) a:hover{
+	color:#EB8A3D;
+	text-decoration: underline;
+}
+h1 span:nth-of-type(3) a{
+	height:26px;
+	display: block;
+	color:#335B64;
+	line-height: 26px;
+	text-align: center;
+	padding-left: 3px;
+	font-weight: 900;
+}
+h1 span:nth-of-type(4) a{
+	height:26px;
+	display: block;
+	color:#335B64;
+	line-height: 26px;
+	text-align: center;
+	padding-left: 15px;
+	font-weight: 900;
+}
+
+#add_con1{
+	width:100%;
+	border:1px solid #d7d7d7;
+	background:#f3f3f3;
+	margin-bottom:10px;
+	position:relative;
+}
+.add_com1 {
+	height:39px;
+	background:#efefef;
+}
+.add_com1>li{
+	float: left;
+
+	line-height: 39px;
+	padding:0 20px;
+}
+.add_com2{
+	width:100%;
+	
+	background:#fff;
+}
+
+.add_com2 li{
+	line-height: 39px;
+	display: none;	
+}
+.label{
+	text-align: right;
+	vertical-align: top;
+	font-weight: bold;
+	padding:5px 1em;
+	width:30%;
+	line-height: 30px;
+}
+.require-field{
+	color:#f00;
+	margin-left: 10px;
+}
+select{
+	margin:5px 0;
+}
+.label>a{
+	margin:5px;
+}
+.special{
+	border:1px solid #91C4D0;
+	border-bottom: #278296 2px solid;
+	border-right: #278296 2px solid;
+	color:#335B64;
+	background:#DDEEF2;
+	font-size:12px;
+	text-decoration: none;
+}
+td{
+	font-size: 12px;
+}
+input{
+	outline: none;
+}
+.button-div{
+	text-align: center;
+}
+#footer{
+	
+	width:100%;
+	
+	line-height: 18px;
+	background:#f3f3f3 url(/images/th_bg.gif) repeat-x;
+	font-size: 12px;
+	text-align: center;
+	border:1px solid #ddd;
+	color:#9CACAF;
+	padding:15px 0;
+	
+}

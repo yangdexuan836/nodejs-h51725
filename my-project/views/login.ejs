@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录页面</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/iconfont/iconfont.css">
+	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+	<div id="logo"><img src="/images/shopex.png"></div>
+	
+		<div id="centerWrap">
+			<img src="/images/ecshop-logo.png">
+			<div class="loginPanel">
+					<div class="first"><i class="iconfont icon-xingmingyonghumingnicheng "></i><input type="text" placeholder="用户名"  id="username"></div>
+					<div class="second"><i class="iconfont icon-mima"></i><input type="text" placeholder="密码" id="psw"></div>
+					<div class="three"><i class="iconfont icon-ecurityCode"></i><input type="text" placeholder="验证码"><p class="authCode">1111</p></div>
+					<div class="four"><input value="登录" type="submit" onclick="login()"></input></div>
+					<div class="five"><input type="checkbox" id="box"><a href="">保存登录信息</a><a href="">忘记密码？</a><a href="">去店铺首页>></a></div>
+				<img src="/images/icloud-bar.png">
+			</div>
+		</div>
+	
+</body>
+<script type="text/javascript">
+function login(){
+	console.log($("#username").val())
+	$.ajax({
+		url:"/api/login",
+		type:"post",
+		data:{
+			username:$("#username").val(),
+			psw:$("#psw").val()
+		},
+		success:function(res){
+			console.log(res)
+			location.href="/main"
+		}
+	})
+
+}
+</script>
+</html>
